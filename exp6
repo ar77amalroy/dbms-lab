@@ -1,0 +1,110 @@
+-- 1. Ceil value of 8.29
+SELECT CEIL(8.29) FROM DUAL;
+
+-- 2. Ceil value of -3.9
+SELECT CEIL(-3.9) FROM DUAL;
+
+-- 3. Ceil of 17/3
+SELECT CEIL(17 / 3) FROM DUAL;
+
+-- 4. Floor value of 9.76
+SELECT FLOOR(9.76) FROM DUAL;
+
+-- 5. Floor value of -5.3
+SELECT FLOOR(-5.3) FROM DUAL;
+
+-- 6. Floor of 15/4
+SELECT FLOOR(15 / 4) FROM DUAL;
+
+-- 7. Square root of 625
+SELECT SQRT(625) FROM DUAL;
+
+-- 8. Square root of 2
+SELECT SQRT(2) FROM DUAL;
+
+-- 9. Absolute value of 8.29
+SELECT ABS(8.29) FROM DUAL;
+
+-- 10. Absolute value of -3.14
+SELECT ABS(-3.14) FROM DUAL;
+
+-- 11. Absolute value of -42
+SELECT ABS(-42) FROM DUAL;
+
+-- 12. Current date using SYSDATE
+SELECT SYSDATE AS NOW FROM DUAL;
+-- 13. Use TO_CHAR to display date in different formats
+select  to_char (sysdate, 'DD-MM-YYYY HR24:MM:SS') as fulltimestamp from dual;
+
+-- 14. Display system date and time using SYSTIMESTAMP
+SELECT SYSTIMESTAMP FROM DUAL;
+
+-- 15. LEAST function with three strings
+SELECT LEAST('Apple', 'Orange', 'Banana') AS "Least_String" FROM DUAL;
+
+-- 16. GREATEST function with three strings
+SELECT GREATEST('Apple', 'Orange', 'Banana') AS "Greatest_String" FROM DUAL;
+
+-- 17. Remove leading spaces
+SELECT LTRIM('     Trim me') AS "No_Leading_Spaces" FROM DUAL;
+
+-- 18. Remove trailing spaces
+SELECT RTRIM('I love India     ') AS "No_Trailing_Spaces" FROM DUAL;
+
+-- 19. Right-pad name to 15 characters with 'X'
+SELECT RPAD('Amal Roy', 15, 'X') AS "Padded_Name" FROM DUAL;
+
+-- 20. Right-pad 123 to 6 characters with zeros
+SELECT LPAD(123, 6, '0') AS "Padded_Number" FROM DUAL;
+-- 21. Reverse of the string 'uoy evol I'
+SELECT REVERSE('uoy evol I') AS "Reversed_String" FROM DUAL;
+
+-- 22. Reverse 'racecar' to check palindrome
+SELECT REVERSE('racecar') AS "Reversed_Racecar" FROM DUAL;
+
+-- 23. Find length of 'Oracle Database'
+SELECT LENGTH('Oracle Database') AS "Length" FROM DUAL;
+
+-- 24. Concatenate strings
+SELECT 'Oracle' || ' SQL' || ' is' || ' powerful' || ' and flexible' AS "Concatenated" FROM DUAL;
+
+-- 25. Concatenate first name and last name using CONCAT (nested)
+SELECT CONCAT(CONCAT('Amal', ' '), 'Roy') AS "Full_Name" FROM DUAL;
+
+-- 26. Retrieve substring 'is' from 'India is my country'
+SELECT SUBSTR('India is my country', 7, 2) AS "Substring_IS" FROM DUAL;
+
+-- 27. Extract middle 3 characters of your name (e.g., 'AmalRoy' => 'lRo')
+SELECT SUBSTR('AmalRoy', 3, 3) AS "Middle_3" FROM DUAL;
+
+-- 28. Extract first 3 characters of 'Substring'
+SELECT SUBSTR('Substring', 1, 3) AS "First_3" FROM DUAL;
+part b
+CREATE TABLE Angle(
+    Angle INT PRIMARY KEY,
+    Sin VARCHAR(20),
+    Cos VARCHAR(20),
+    Tan VARCHAR(20),
+    Cot VARCHAR(20),
+    Sec VARCHAR(20)
+);
+
+INSERT INTO Angle(Angle) VALUES(0);
+INSERT INTO Angle(Angle) VALUES(30);
+INSERT INTO Angle(Angle) VALUES(45);
+INSERT INTO Angle(Angle) VALUES(60);
+INSERT INTO Angle(Angle) VALUES(90);
+
+select * from angle;
+UPDATE Angle SET Sin = ROUND(SIN(Angle * (3.14/180)), 5);
+UPDATE Angle SET Cos = ROUND(COS(Angle * (3.14/180)), 5);
+UPDATE Angle SET Tan = ROUND(TAN(Angle * (3.14/180)), 5);
+UPDATE Angle SET Sec = ROUND(1/COS(Angle * (3.14/180)), 5);
+
+UPDATE Angle SET Cot = ROUND(1/TAN(Angle * (3.14/180)), 5) WHERE Angle = 0;
+UPDATE Angle SET Cot = ROUND(1/TAN(Angle * (3.14/180)), 5) WHERE Angle = 30;
+UPDATE Angle SET Cot = ROUND(1/TAN(Angle * (3.14/180)), 5) WHERE Angle = 45;
+UPDATE Angle SET Cot = ROUND(1/TAN(Angle * (3.14/180)), 5) WHERE Angle = 60;
+UPDATE Angle SET Cot = ROUND(1/TAN(Angle * (3.14/180)), 5) WHERE Angle = 90;
+
+select * from angle;
